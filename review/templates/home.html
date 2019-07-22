@@ -12,7 +12,6 @@
 
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
-
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -27,7 +26,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
 /* Modal Content */
 .modal-content {
   background-color: #fefefe;
@@ -36,7 +34,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
   border: 1px solid #888;
   width: 80%;
 }
-
 /* The Close Button */
 .close {
   color: #aaaaaa;
@@ -44,22 +41,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
   font-size: 28px;
   font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
-
-
-
 		em {
 			display: block;
 			margin: .5em auto 2em;
 			color: #bbb;
 		}
-
 		p, p a {
 			color: #aaa;
 			text-decoration: none;
@@ -70,7 +62,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		}
 		p + p { color: #bbb; margin-top: 2em;}
 		.detail {position: absolute; text-align: right; right: 5px; bottom: 5px; width: 80%;}
-
 		a[href*="intent"] {
 			display:inline-block;
 			margin-top: 0.4em;
@@ -107,9 +98,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		.rating2 a {
 			float:none
 		}
-
-
-
 .text-area {
   width: 80%;
   margin:auto auto;
@@ -127,18 +115,14 @@ textarea {
   font-weight: 300;
   border-color:black;
 }
-
-
 .button {
  	display:block;
   position:relative;
-
   padding:7px;
   margin:auto auto;
     width:20%;
   text-decoration:none;
   text-align:center;
-
   border:1px solid rgba(0,0,0,0.4);
   border-radius:0.2em;
   box-shadow:
@@ -148,7 +132,6 @@ textarea {
     0 0 2px 8px rgba(50,50,50,0.1);
   transition:all 0.3s ease-out;
   background:orangered;
-
   font-family:Helvetica, sans-serif;
   font-size:1em;
   line-height:1.5em;
@@ -156,11 +139,8 @@ textarea {
   color:rgba(255,255,255,0.8);
   text-shadow:0 -1px 0 rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.2);
   -webkit-font-smoothing: subpixel-antialiased;
-
-
  }
   .orange { background:#d02211; }
-
 </style>
 
 </head>
@@ -189,7 +169,8 @@ textarea {
     <div class="text-area">
 <p ></p>
 
-        <textarea name="ratedesc" name="desc" id="status" rows="5" placeholder="What's on you mind?">
+
+        <textarea name="ratedesc"  id="status" rows="5" placeholder="What's on you mind?">
 
 
     </textarea>
@@ -209,30 +190,23 @@ textarea {
 <script>
 // Get the modal
 var modal = document.getElementById("myModal");
-
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
 // When the user clicks the button, open the modal
 <!--btn.onclick = function() {-->
   <!--modal.style.display = "block";-->
 <!--}-->
 function modelrate(){
-
 modal.style.display = "block";
 var x=document.getElementById("ridhid").value;
-alert(x);
-
+<!--alert(x);-->
 }
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
@@ -245,11 +219,11 @@ window.onclick = function(event) {
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'> </script>
 
 </script>
-<h1>Food Review in Singapore</h1>
+<h1>Food Logo</h1>
  <h2>By Nyein Chan Kyaw Swar, Kay Thi Swe Tun, Ei Theingi Swe</h2>
   <nav>
-      <ul>
-          <li><a href="#">Home</a></li>
+      <ul style= "float:right">
+          <li><a href="{% url 'review:index'  %}">Home</a></li>
           <li class="visited sub"><a href="#">Categories</a>
               <ul>
 
@@ -264,13 +238,11 @@ window.onclick = function(event) {
               </ul>
 
           </li>
-          <li><a href="#">Gallery</a></li>
-          <li><a href="#">Contact</a></li>
       </ul>
 
   </nav>
 
-<p id="demo">djonrob</p>
+<p id="demo"></p>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
@@ -278,7 +250,7 @@ window.onclick = function(event) {
   <div id="displaywrap">
       <div id="logobx" style="display: block;">
 
-      <img src="http://www.andrewjtullio.com/codepen/generic-logo.png"  class="logo"/>
+      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/76ab2e19585305.562dce0bcf645.png"  class="logo"/>
       </div>
 
       <div class="mainpanel" style="display: block;">
@@ -286,9 +258,9 @@ window.onclick = function(event) {
           <div class="thumbbx">
 
               {% for val in restaurant %}
-              <div class="roomthumb pqr">
-                  <span id="rid" onclick="myfun('{{ val.Rname }}','{{ val.Rdesc }}','{{ val.Rid }}')">{{ val.Rname }}</span>
-                  <img src="http://www.andrewjtullio.com/codepen/hotel1.jpg">
+              <div class="roomthumb pqr" onclick="myfun('{{ val.Rname }}','{{ val.Rdesc }}','{{ val.Rid }}')">
+                  <span id="rid" >{{ val.Rname }}</span>
+                  <img style="width:232px;height:144px" src="{{val.Rimage}}">
               </div>
 
 
@@ -297,37 +269,7 @@ window.onclick = function(event) {
           </div>
       </div>
 
-          <div class="amenitiespanel" style="display: none;">
-          <img src="http://www.andrewjtullio.com/codepen/close.png" class="rmsclose">
-          <div class="amenbx">
-              <strong>In-Room Amenities</strong>
-              <ul style="margin-top:20px;">
-            <li>Qui at nonumy lobortis concludaturque</li>
-            <li>cu eros novum periculis eum</li>
-            <li>Pro tacimates salutatus te</li>
-            <li>eam ut dolorem electram euripidis</li>
-            <li>minim splendide mediocritatem nam et</li>
-            <li>Similique cotidieque eum in</li>
-            <li>Fastidii disputationi vis ad</li>
-            <li>Graeci molestiae mel at</li>
-            <li>Quo an velit tamquam</li>
-            <li>Discere diceret voluptatum vim at</li>
-            <li>Autem viderer qui eu</li>
-              </ul>
-          </div>
 
-          <div class="amenbx">
-              <ul style="margin-top:35px; margin-left:90px;">
-                  <li>Qui at nonumy lobortis concludaturque</li>
-            <li>cu eros novum periculis eum</li>
-            <li>Pro tacimates salutatus te</li>
-            <li>eam ut dolorem electram euripidis</li>
-            <li>minim splendide mediocritatem nam et</li>
-            <li>Similique cotidieque eum in</li>
-            <li>Fastidii disputationi vis ad</li>
-            <li>Graeci molestiae mel at</li>
-              </ul>
-          </div>
 
       </div>
 
@@ -337,11 +279,11 @@ window.onclick = function(event) {
      <p id="desc"></p>
 
 
-      <span class="rmamenslink"><span class="inroom">In-Room Amenities</span> &gt;</span>
+      <span class="rmamenslink"><span class="inroom"></span></span>
 
           <div class="btmlinks">
               <img src="http://www.andrewjtullio.com/codepen/back.jpg" class="btmback">
-              <a target="_blank" onclick="modelrate()"><img src="http://www.andrewjtullio.com/codepen/booknow.jpg" class="btmbooknow"></a>
+              <a target="_blank" onclick="modelrate()"><img style="width:110px;height:42px" src="http://www.clker.com/cliparts/x/F/9/x/I/k/review-button-png-hi.png" class="btmbooknow"></a>
           </div>
 
       </div>
@@ -350,43 +292,26 @@ window.onclick = function(event) {
 <script>
 function myfun(x,y,z) {
   var val=document.getElementById("rid").innerHTML;
-
-  alert( x+ "" );
-
+  <!--alert( x+ "" );-->
   document.getElementById("Rname").innerHTML=x;
-
   document.getElementById("desc").innerHTML=y;
   document.getElementById("hidid").value=z;
- document.getElementById("status").value=z;
+ <!--document.getElementById("status").value=z;-->
 }
 function rate1(){
-
  document.getElementById("starrate").value=1;
-
-
 }
-
 function rate2(){
-
  document.getElementById("starrate").value=2;
-
 }
-
 function rate3(){
  document.getElementById("starrate").value=3;
-
-
 }
-
 function rate4(){
  document.getElementById("starrate").value=4;
-
-
 }
 function rate5(){
-
  document.getElementById("starrate").value=5;
-
 }
 </script>
 

@@ -41,7 +41,25 @@ def rate(request):
     descc = request.POST['ratedesc']
     print(" id " +c+", rating "+rating+" , descript "+descc)
 
+    context = {}
+    category = Category.objects.all()
 
+    cat_dict = dict()
+    print(category.get(Cid=1))
+
+    for dd in category:
+        print(dd.Cid)
+        cat_dict[dd.Cid] = dd.Cname
+
+    rest = object
+
+    rest = Restaurant.objects.all()
+
+
+    context = {
+        'cat': cat_dict,
+        'restaurant': rest,
+    }
     return render(request, 'home.html', context)
 
 
