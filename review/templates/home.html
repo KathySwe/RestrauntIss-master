@@ -183,13 +183,18 @@ textarea {
 		--><a href="#" title="Give 1 star" onclick="rate()">★</a>
 	</div>
 {% csrf_token %}
+
+     <input type="hidden" id="hidid" name="rkey">
+
     <div class="text-area">
+
+
         <textarea name="" id="status" rows="5" placeholder="What's on you mind?">
 
 
     </textarea>
         <br><br><br>
-    <button type="submit" href="#" class="button green"> Subscribe </button>
+    <button type="submit"  class="button green"> Subscribe </button>
 
     </div>
 
@@ -218,6 +223,9 @@ var span = document.getElementsByClassName("close")[0];
 function modelrate(){
 
 modal.style.display = "block";
+var x=document.getElementById("ridhid").innerHTML;
+alert(x);
+
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -279,7 +287,7 @@ window.onclick = function(event) {
 
               {% for val in restaurant %}
               <div class="roomthumb pqr">
-                  <span id="rid" onclick="myfun('{{ val.Rname }}','{{ val.Rdesc }}')">{{ val.Rname }}</span>
+                  <span id="rid" onclick="myfun('{{ val.Rname }}','{{ val.Rdesc }}','{{ val.Rid }}')">{{ val.Rname }}</span>
                   <img src="http://www.andrewjtullio.com/codepen/hotel1.jpg">
               </div>
 
@@ -328,6 +336,7 @@ window.onclick = function(event) {
 
      <p id="desc"></p>
 
+
       <span class="rmamenslink"><span class="inroom">In-Room Amenities</span> &gt;</span>
 
           <div class="btmlinks">
@@ -339,7 +348,7 @@ window.onclick = function(event) {
   </div>
   <script src="{% static 'home.js' %}"></script>
 <script>
-function myfun(x,y) {
+function myfun(x,y,z) {
   var val=document.getElementById("rid").innerHTML;
 
   alert( x+ "" );
@@ -347,6 +356,7 @@ function myfun(x,y) {
   document.getElementById("Rname").innerHTML=x;
 
   document.getElementById("desc").innerHTML=y;
+  document.getElementById("hidid").innerHTML=z;
 
 }
 function rate(){

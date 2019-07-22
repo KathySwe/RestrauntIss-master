@@ -32,12 +32,12 @@ def index(request,catid=0):
     return render(request, 'home.html', context)
 
 
-def rate(request,resid):
+def rate(request,restid):
     context={}
     if request.method == 'POST':
-        return render(request, 'review/home.html', context)
+        return render(request, 'home.html', context)
 
 
-    return render(request, 'review/home.html', context)
+    return render(request, 'home.html', context)
 
 
