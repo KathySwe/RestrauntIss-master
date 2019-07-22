@@ -51,6 +51,62 @@ body {font-family: Arial, Helvetica, sans-serif;}
   text-decoration: none;
   cursor: pointer;
 }
+
+
+
+		em {
+			display: block;
+			margin: .5em auto 2em;
+			color: #bbb;
+		}
+
+		p, p a {
+			color: #aaa;
+			text-decoration: none;
+		}
+		p a:hover,
+		p a:focus {
+			text-decoration: underline;
+		}
+		p + p { color: #bbb; margin-top: 2em;}
+		.detail {position: absolute; text-align: right; right: 5px; bottom: 5px; width: 80%;}
+
+		a[href*="intent"] {
+			display:inline-block;
+			margin-top: 0.4em;
+		}
+		/*
+		 * Rating styles
+		 */
+		.rating {
+			width: 226px;
+			height:80px;
+			margin: 1em auto auto;
+			font-size: 45px;
+			overflow:override;
+		}
+		.rating a {
+			float:right;
+			color: #aaa;
+			text-decoration: none;
+			-webkit-transition: color .4s;
+			-moz-transition: color .4s;
+			-o-transition: color .4s;
+			transition: color .4s;
+		}
+		.rating a:hover,
+		.rating a:hover ~ a,
+		.rating a:focus,
+		.rating a:focus ~ a		{
+			color: orange;
+			cursor: pointer;
+		}
+		.rating2 {
+			direction: rtl;
+		}
+		.rating2 a {
+			float:none
+		}
 </style>
 
 </head>
@@ -61,7 +117,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+
+<h2>Rating the restaurant with description</h2>
+
+	<div class="rating rating2"><!--
+		--><a href="#" title="Give 5 stars" onclick="rate()">★</a><!--
+		--><a href="#" title="Give 4 stars" onclick="rate()">★</a><!--
+		--><a href="#" title="Give 3 stars" onclick="rate()">★</a><!--
+		--><a href="#" title="Give 2 stars" onclick="rate()">★</a><!--
+		--><a href="#" title="Give 1 star" onclick="rate()">★</a>
+	</div>
+
   </div>
 
 </div>
@@ -214,6 +280,9 @@ function myfun(x,y) {
 
   document.getElementById("desc").innerHTML=y;
 
+}
+function rate(){
+alert("click the star");
 }
 </script>
 
