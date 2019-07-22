@@ -8,5 +8,5 @@ urlpatterns = [
 
     path('<int:catid>/', views.index, name='index'),
     path('', views.index, name='index'),
-    # path('<int:restid>/vote/', views.vote, name='vote'),
+     path('<int:restid>/rate/', views.rate, name='rate'),
 ]
