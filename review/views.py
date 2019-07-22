@@ -32,12 +32,19 @@ def index(request,catid=0):
     return render(request, 'home.html', context)
 
 
-def rate(request,restid):
+def rate(request):
     context={}
-    if request.method == 'POST':
-        return render(request, 'home.html', context)
+    print(" key of rest ")
+    # if request.method == 'POST':
+    c=request.POST['rkey']
+    rating = request.POST['starkey']
+    descc = request.POST['ratedesc']
+    print(" id " +c+", rating "+rating+" , descript "+descc)
 
 
     return render(request, 'home.html', context)
+
+
+    # return render(request, 'home.html', context)
 
 

@@ -174,22 +174,22 @@ textarea {
 
 <h2>Rating the restaurant with description</h2>
 
-<form action="{% url 'review:rate' 1 %}" method="post">
+<form action="{% url 'review:rate'  %}" method="post">
 	<div class="rating rating2"><!--
-		--><a href="#" title="Give 5 stars" onclick="rate()">★</a><!--
-		--><a href="#" title="Give 4 stars" onclick="rate()">★</a><!--
-		--><a href="#" title="Give 3 stars" onclick="rate()">★</a><!--
-		--><a href="#" title="Give 2 stars" onclick="rate()">★</a><!--
-		--><a href="#" title="Give 1 star" onclick="rate()">★</a>
+		--><a href="#" title="Give 5 stars" onclick="rate5()">★</a><!--
+		--><a href="#" title="Give 4 stars" onclick="rate4()">★</a><!--
+		--><a href="#" title="Give 3 stars" onclick="rate3()">★</a><!--
+		--><a href="#" title="Give 2 stars" onclick="rate2()">★</a><!--
+		--><a href="#" title="Give 1 star" onclick="rate1()">★</a>
 	</div>
 {% csrf_token %}
 
-     <input type="hidden" id="hidid" name="rkey">
-
+    <input type="hidden" id="hidid" name="rkey">
+<input type="hidden" id="starrate" name="starkey">
     <div class="text-area">
+<p ></p>
 
-
-        <textarea name="" id="status" rows="5" placeholder="What's on you mind?">
+        <textarea name="ratedesc" name="desc" id="status" rows="5" placeholder="What's on you mind?">
 
 
     </textarea>
@@ -223,7 +223,7 @@ var span = document.getElementsByClassName("close")[0];
 function modelrate(){
 
 modal.style.display = "block";
-var x=document.getElementById("ridhid").innerHTML;
+var x=document.getElementById("ridhid").value;
 alert(x);
 
 }
@@ -356,11 +356,37 @@ function myfun(x,y,z) {
   document.getElementById("Rname").innerHTML=x;
 
   document.getElementById("desc").innerHTML=y;
-  document.getElementById("hidid").innerHTML=z;
+  document.getElementById("hidid").value=z;
+ document.getElementById("status").value=z;
+}
+function rate1(){
+
+ document.getElementById("starrate").value=1;
+
 
 }
-function rate(){
-alert("click the star");
+
+function rate2(){
+
+ document.getElementById("starrate").value=2;
+
+}
+
+function rate3(){
+ document.getElementById("starrate").value=3;
+
+
+}
+
+function rate4(){
+ document.getElementById("starrate").value=4;
+
+
+}
+function rate5(){
+
+ document.getElementById("starrate").value=5;
+
 }
 </script>
 
